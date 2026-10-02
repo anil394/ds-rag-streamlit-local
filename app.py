@@ -7,8 +7,31 @@ import streamlit as st
 import rag
 
 st.set_page_config(page_title="Local RAG Demo", page_icon=":books:", layout="wide")
-st.title("Ask your PDF, fully offline")
-st.caption(f"Local model: {rag.LLM_MODEL} (Ollama) | embeddings: multilingual MiniLM | vector DB: Chroma. Ask in English or German.")
+st.markdown(
+    """
+    <style>
+    .hero {background: linear-gradient(120deg,#4F46E5,#7C3AED 55%,#06B6D4); color:white;
+           padding:22px 28px; border-radius:16px; margin-bottom:14px;}
+    .hero h1 {color:white; margin:0; font-size:2rem;}
+    .hero p {margin:6px 0 0 0; opacity:.92;}
+    .pill {display:inline-block; background:rgba(255,255,255,.2); border-radius:999px;
+           padding:3px 12px; margin:10px 6px 0 0; font-size:.8rem;}
+    .card {background:white; border-radius:14px; padding:14px 18px; border-left:6px solid #4F46E5;
+           box-shadow:0 1px 6px rgba(31,35,64,.08);}
+    .card.c2 {border-left-color:#7C3AED;} .card.c3 {border-left-color:#06B6D4;}
+    .card small {color:#6B7280; text-transform:uppercase; letter-spacing:.05em; font-size:.7rem;}
+    .card div {font-size:1.35rem; font-weight:700; color:#1F2340; overflow-wrap:anywhere;}
+    [data-testid="stSidebar"] {background:#E8EBFA;}
+    </style>
+    <div class="hero">
+      <h1>Ask your PDF, fully offline</h1>
+      <p>Private document Q&A in English and German. Nothing leaves this laptop.</p>
+      <span class="pill">Local LLM: qwen3.5:2b</span><span class="pill">Ollama</span>
+      <span class="pill">Chroma vector DB</span><span class="pill">Multilingual embeddings</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 SAMPLES = {
     "Handbook (English)": "documents/nordlicht_handbook_en.pdf",
@@ -42,9 +65,10 @@ else:
     doc_name = Path(SAMPLES[sample]).name
 
 c1, c2, c3 = st.columns(3)
-c1.markdown(f"**Document**  \n{doc_name}")
-c2.metric("Chunks", len(chunks))
-c3.metric("Retrieving", f"top {k}")
+c1.markdown(f'<div class="card"><small>Document</small><div>{doc_name}</div></div>', unsafe_allow_html=True)
+c2.markdown(f'<div class="card c2"><small>Chunks created</small><div>{len(chunks)}</div></div>', unsafe_allow_html=True)
+c3.markdown(f'<div class="card c3"><small>Chunks retrieved per question</small><div>top {k}</div></div>', unsafe_allow_html=True)
+st.write("")
 
 chat_tab, eval_tab, chunk_tab = st.tabs(["Ask a question", "Live accuracy check", "How the PDF was chunked"])
 
