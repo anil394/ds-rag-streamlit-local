@@ -1,0 +1,10 @@
+[
+ {"q": "How many days of paid leave do I get per year?", "must": ["28"]},
+ {"q": "Wie viele Urlaubstage habe ich pro Jahr?", "must": ["28"]},
+ {"q": "What is the daily meal limit on business trips?", "must": ["45"]},
+ {"q": "Wie hoch ist das Hotelbudget pro Nacht?", "must": ["120"]},
+ {"q": "How many days can I work from home each week?", "must": ["3"]},
+ {"q": "Wie lautet die Durchwahl des IT-Helpdesks?", "must": ["4400"]},
+ {"q": "What is my yearly learning budget?", "must": ["1,500", "1500", "1.500"]},
+ {"q": "Within how many days must a broken laptop be reported?", "must": ["2", "two"]}
+]

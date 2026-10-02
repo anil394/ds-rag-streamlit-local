@@ -1,0 +1,15 @@
+[project]
+name = "ds-rag-streamlit-local"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "langchain-chroma>=1.1.0",
+    "langchain-core>=1.6.6",
+    "langchain-huggingface>=1.2.2",
+    "langchain-ollama>=1.1.0",
+    "langchain-text-splitters>=1.1.2",
+    "pypdf>=6.19.0",
+    "reportlab>=5.0.1",
+    "sentence-transformers>=6.1.0",
+    "streamlit>=1.64.0",
+]
