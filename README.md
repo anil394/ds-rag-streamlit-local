@@ -2,6 +2,8 @@
 
 Ask questions about a PDF in English or German, fully offline. A small open-source language model runs on your own machine through Ollama, so no internet connection and no API key are needed after the one-time setup.
 
+![App home](docs/ui_home.jpg)
+
 ![Live accuracy check](docs/accuracy_check.jpg)
 
 ## How it works
